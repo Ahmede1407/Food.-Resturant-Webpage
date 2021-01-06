@@ -4,3 +4,17 @@ window.addEventListener('scroll', function(){
 
   header.classList.toggle('sticky', window.scrollY > 0)
 })
+
+
+// let showMenu = function(navToggle, navMenu){
+//   let toggle = document.querySelector('#'+ navToggle);
+//   let menu = document.querySelector('#'+ navMenu);
+//
+//   if (toggle && menu){
+//     toggle.addEventListener('click', function(){
+//       menu.classList.toggle('show-menu');
+//     })
+//   }
+// }
+//
+// showMenu('nav-toggle', 'nav-menu');
