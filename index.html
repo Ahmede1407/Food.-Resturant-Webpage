@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="public/images/resturant-icon.ico" style="width:100%;">
 
   <!-- FONT AWESOME -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
@@ -11,7 +12,7 @@
   <!-- CSS -->
   <link rel="stylesheet" href="public/css/styles.css">
 
-  <title>Resturant</title>
+  <title>Food.</title>
 </head>
 
 <body>
@@ -21,21 +22,18 @@
     <nav class="nav nav-container">
       <a href="#" class="nav-logo">Food<span>.</span> </a>
 
-      <div class="nav-menu" id="nav-menu">
-        <ul class="nav-list">
-          <li class="nav-item"> <a href="#home" class="nav-link active-link">Home</a> </li>
-          <li class="nav-item"> <a href="#about" class="nav-link">About Us</a> </li>
-          <li class="nav-item"> <a href="#menu" class="nav-link">Menu</a> </li>
-          <li class="nav-item"> <a href="#expert" class="nav-link">Expert</a> </li>
-          <li class="nav-item"> <a href="#testimonials" class="nav-link">Testimonials</a> </li>
-          <li class="nav-item"> <a href="#contact" class="nav-link">Contact Us</a> </li>
+      <div class="nav-toggle" id="nav-toggle" onclick="toggleIcon()"></div>
 
-        </ul>
-      </div>
+      <ul class="nav-list" id="nav-list">
+        <li class="nav-item"> <a href="#home" class="nav-link">Home</a> </li>
+        <li class="nav-item"> <a href="#about" class="nav-link">About Us</a> </li>
+        <li class="nav-item"> <a href="#menu" class="nav-link">Menu</a> </li>
+        <li class="nav-item"> <a href="#expert" class="nav-link">Expert</a> </li>
+        <li class="nav-item"> <a href="#testimonials" class="nav-link">Testimonials</a> </li>
+        <li class="nav-item"> <a href="#contact" class="nav-link">Contact Us</a> </li>
+      </ul>
 
-      <div class="nav-toggle" id="nav-toggle">
 
-      </div>
     </nav>
 
   </header>
@@ -141,7 +139,7 @@
 
       </div>
 
-      <div class="menu-content">
+      <div class="content">
         <a href="#" class="btn">View All</a>
       </div>
 
@@ -314,10 +312,37 @@
   <!-- /FOOTER -->
 
 
-  <!-- Scroll Reveal -->
-  <script src="https://unpkg.com/scrollreveal"></script>
-
   <!-- JS FILE -->
+  <script type="text/javascript">
+
+    // Sticky NAVBAR
+    window.addEventListener('scroll', function(){
+      let header = document.querySelector('#header');
+      header.classList.toggle('sticky', window.scrollY   > 0)
+    });
+
+    // Toggle icon
+    function toggleIcon(){
+      let toggle = document.querySelector('#nav-toggle');
+      let list = document.querySelector('#nav-list')
+
+      toggle.classList.toggle('toggled');
+      list.classList.toggle('show-menu')
+    };
+
+
+    // Remove Menu When Link Clicked
+    let navLink = document.querySelectorAll('.nav-link');
+    function linkClicked(){
+      let toggle = document.querySelector('#nav-toggle');
+      let list = document.querySelector('#nav-list')
+      list.classList.remove('show-menu');
+      toggle.classList.remove('toggled');
+    }
+    navLink.forEach(x => x.addEventListener('click', linkClicked ));
+
+  </script>
+
   <script src="public/js/app.js" charset="utf-8"></script>
 </body>
 
